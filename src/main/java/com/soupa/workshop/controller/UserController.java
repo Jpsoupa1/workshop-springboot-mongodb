@@ -47,5 +47,11 @@ public class UserController {
         return ResponseEntity.created(uir).build();
     }
 
+    @RequestMapping(value = "/{id}", method=RequestMethod.DELETE)
+    public ResponseEntity<Void> deleteById(@PathVariable String id) {
+        service.delete(id);
+        return ResponseEntity.noContent().build();
+    }
+
 }
 
