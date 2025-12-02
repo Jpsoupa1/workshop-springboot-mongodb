@@ -15,6 +15,7 @@ public class UserService {
     private UserRepository repo;
 
     public List<User> findAll() {
+       // System.out.println(repo.);
         return repo.findAll();
     }
 }
