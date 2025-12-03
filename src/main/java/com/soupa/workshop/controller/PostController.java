@@ -21,7 +21,7 @@ public class PostController {
     private PostService service;
 
     @RequestMapping(method=RequestMethod.GET)
-    private List<Post> findAall() {
+    private List<Post> findAll() {
 
         return service.findAll();
     }
