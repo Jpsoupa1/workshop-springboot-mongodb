@@ -26,8 +26,6 @@ public class UserController {
     
     @Autowired
     private UserService service;
-    
-    @Autowired
 
     @RequestMapping(method=RequestMethod.GET)
     public ResponseEntity<List<UserDTO>> findAll() {
