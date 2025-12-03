@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
 import com.soupa.workshop.dto.UserDTO;
+import com.soupa.workshop.model.Post;
 import com.soupa.workshop.model.User;
 import com.soupa.workshop.service.UserService;
 
@@ -25,6 +26,8 @@ public class UserController {
     
     @Autowired
     private UserService service;
+    
+    @Autowired
 
     @RequestMapping(method=RequestMethod.GET)
     public ResponseEntity<List<UserDTO>> findAll() {
@@ -61,5 +64,10 @@ public class UserController {
         return ResponseEntity.noContent().build();
     }
 
+    @RequestMapping(value = "/{id}/posts" ,method=RequestMethod.GET)
+    public ResponseEntity<List<Post>> findAllPosts(@PathVariable String id) {
+        User obj = service.findById(id);
+        return ResponseEntity.ok().body(obj.getPosts());
+    }
 }
 
