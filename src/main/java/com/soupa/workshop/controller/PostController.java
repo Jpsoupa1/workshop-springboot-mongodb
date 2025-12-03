@@ -21,7 +21,7 @@ public class PostController {
 
     
     @RequestMapping(method=RequestMethod.GET)
-    public ResponseEntity<List<UserDTO>> findAll() {
+    public ResponseEntity<Post> findAll() {
         List<Post> list = service.findAll();
         List<UserDTO> listDto = list.stream().map(x -> new UserDTO(x)).collect(Collectors.toList());
         return ResponseEntity.ok().body(listDto);
