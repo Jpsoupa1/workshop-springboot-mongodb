@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.soupa.workshop.model.Comment;
 import com.soupa.workshop.model.Post;
 import com.soupa.workshop.service.PostService;
 
@@ -22,7 +23,6 @@ public class PostController {
 
     @RequestMapping(method=RequestMethod.GET)
     private List<Post> findAll() {
-
         return service.findAll();
     }
     
@@ -30,5 +30,11 @@ public class PostController {
     public ResponseEntity<Post> findPostById(@PathVariable String id) {
         Post obj = service.findById(id);
         return ResponseEntity.ok().body(obj);
-    }    
+    }
+
+    @RequestMapping(value = "/{id}/comments" ,method=RequestMethod.GET)
+    public ResponseEntity<List<Comment>> findAllComments(@PathVariable String id) {
+        Post obj = service.findById(id);
+        return ResponseEntity.ok().body(obj.getComments());
+    }
 }

@@ -19,6 +19,9 @@ public class User implements Serializable{
 
     @DBRef(lazy = true) // lazy=true eh para 
     private List<Post> posts = new ArrayList<>();
+
+    private List<Comment> comments = new ArrayList<>();
+    
     
     public User() {
     }
@@ -57,7 +60,15 @@ public class User implements Serializable{
     public void setPosts(List<Post> post) {
         this.posts = post;
     }
+    
+    public List<Comment> getComments() {
+        return comments;
+    }
 
+    public void setComments(List<Comment> comments) {
+        this.comments = comments;
+    }
+    
     @Override
     public String toString() {
         return "name:"+ name + "|| email: " + email;

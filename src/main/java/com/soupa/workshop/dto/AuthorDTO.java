@@ -9,6 +9,7 @@ public class AuthorDTO {
     public AuthorDTO() {
     }
     
+
     public AuthorDTO(User obj) {
         this.id = obj.getId();
         this.name = obj.getName();
